@@ -1,12 +1,12 @@
 require 'pry'
+
 def game_hash
    {
       home: {
-      team_name: "Brooklyn Nets",
-      colors: ["black", "white"],
-      players: {
-      :alan_anderson => {
-        :player_name => "Alan Anderson", 
+        team_name: "Brooklyn Nets",
+        colors: ["Black", "White"],
+        players: {
+          "Alan Anderson" => { 
             number: 0,
             shoe: 16,
             points: 22,
@@ -15,9 +15,8 @@ def game_hash
             steals: 3,
             blocks: 1,
             slam_dunks: 1,
-    },
-          :reggie_evan => {
-           :player_name => "Reggie Evans",
+           },
+         "Reggie Evans" => {
             number: 30,
             shoe: 14,
             points: 12,
@@ -26,9 +25,8 @@ def game_hash
             steals: 12,
             blocks: 12,
             slam_dunks: 7
-    },
-        :brook_lopez => {
-          :player_name => "Brook Lopez",
+          },
+          "Brook Lopez" => {
             number: 11,
             shoe: 17,
             points: 17,
@@ -37,9 +35,8 @@ def game_hash
             steals: 3,
             blocks: 1,
             slam_dunks: 15
-    },
-         :mason_plumlee => {
-          :player_name => "Mason Plumlee",
+          },
+          "Mason Plumlee" => {
             number: 1,
             shoe: 19,
             points: 26,
@@ -48,9 +45,8 @@ def game_hash
             steals: 3,
             blocks: 8,
             slam_dunks: 5
-    },
-        :jason_terry => {
-         :player_name => "Jason Terry",
+           },
+          "Jason Terry" => {
             number: 31 ,
             shoe: 15,
             points: 19,
@@ -59,86 +55,108 @@ def game_hash
             steals: 4,
             blocks: 11,
             slam_dunks: 1
-       }
+           }
+         }
+       },
+       away: {
+         team_name: "Charlotte Hornets",
+         colors: ["Turquoise" , "Purple"],
+         players: {
+           "Jeff Adrien" => {
+              number: 4,
+              shoe: 18,
+              points: 10,
+              rebounds: 1,
+              assists: 1,
+              steals: 2,
+              blocks: 7,
+              slam_dunks: 2
+            },
+            "Bismak Biyombo" => {
+              number: 0,
+              shoe: 16,
+              points: 12,
+              rebounds: 4,
+              assists: 7,
+              steals: 7,
+              blocks: 15,
+              slam_dunks: 10
+             },
+            "DeSagna Diop" => {
+              number: 2,
+              shoe: 14,
+              points: 24,
+              rebounds: 12,
+              assists: 12,
+              steals: 4,
+              blocks: 5,
+              slam_dunks: 5
+            },
+            "Ben Gordon" => {
+              number: 8,
+              shoe: 15,
+              points: 33,
+              rebounds: 3,
+              assists: 2,
+              steals: 1,
+              blocks: 1,
+              slam_dunks: 0
+             },
+            "Brendan Haywood" => {
+              number: 33,
+              shoe: 15,
+              points: 6,
+              rebounds: 12,
+              assists: 12,
+              steals: 22,
+              blocks: 5,
+              slam_dunks: 12
+             }
+           }
+        }
     }
-  },
-      away: {
-      team_name: "Charlotte Hornets",
-      colors: ["turquoise" , "purple"],
-      players: {
-         
-        :jeff_adrien => {
-           :player_name => "Jeff Adrien",
-            number: 4,
-            shoe: 18,
-            points: 10,
-            rebounds: 1,
-            assists: 1,
-            steals: 2,
-            blocks: 7,
-            slam_dunks: 2
-    },
-        :bismack_biyombo =>   {
-          :player_name => "Bismack Biyombo", 
-            number: 0,
-            shoe: 16,
-            points: 12,
-            rebounds: 4,
-            assists: 7,
-            steals: 7,
-            blocks: 15,
-            slam_dunks: 10
-    },
-         :desagna_diop => {
-          :player_name => "DeSagna Diop", 
-            number: 2,
-            shoe: 14,
-            points: 24,
-            rebounds: 12,
-            assists: 12,
-            steals: 4,
-            blocks: 5,
-            slam_dunks: 5
-    },
-         :ben_gordon =>  {
-          :player_name => "Ben Gordon",
-            number: 8,
-            shoe: 15,
-            points: 33,
-            rebounds: 3,
-            assists: 2,
-            steals: 1,
-            blocks: 1,
-            slam_dunks: 0
-    },
-          :brendan_haywood => {
-          :player_name => "Brendan Haywood", 
-            number: 33,
-            shoe: 15,
-            points: 6,
-            rebounds: 12,
-            assists: 12,
-            steals: 22,
-            blocks: 5,
-            slam_dunks: 12
-       }
-     }
-  }
-}
-
- end   
+end  
  
  def num_points_scored(player_name)
-   player_info = nil
-   game_hash.each do |locaton, data|
-     
-   game_hash.each do |player, player_data|
-      if player_data[:player_name] == player_name
-        player_info = player_data[:points]
-         
+   game_hash.each do |location, data|
+     #binding.pry
+        data[:players].each do |player, player_hash|
+          #binding.pry
+          if player == player_name
+            return player_hash[:points]
+          end
+        end
+    end
+ end
+ 
+ def shoe_size(player_name)
+  game_hash.each do |location, data|
+     #binding.pry
+        data[:players].each do |player, player_hash|
+          #binding.pry
+          if player == player_name
+            return player_hash[:shoe]
+          end
+        end
+    end
+  end
+    
+    def team_colors(team_name)
+      game_hash.each do |location, data|
+        #binding.pry
+         if data[:team_name] == team_name
+           return data[:colors]
+        end
       end
     end
     
-  end
- player_info.to_i
-end
+    def team_names
+    array = []
+       game_hash.each do |location, data|
+         array << data[:team_name]
+         #binding.pry
+       end
+          array
+    end
+  
+  
