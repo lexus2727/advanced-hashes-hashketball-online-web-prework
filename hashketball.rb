@@ -160,7 +160,7 @@ end
           array
     end
     
-    def player_name(team_name)
+    def player_numbers(team_name)
       array = []
         game_hash.each do |location, data|
          if data[:team_name] == team_name #team_name
