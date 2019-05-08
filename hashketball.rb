@@ -191,7 +191,7 @@ end
           
             if player_hash[:shoe] > largest_shoe
               largest_shoe == player_hash[:shoe]
-                 binding.pry
+                 #binding.pry
                  return data[:rebounds]
             end
           end
