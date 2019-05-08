@@ -153,7 +153,7 @@ end
     def team_names
     array = []
        game_hash.each do |location, data|
-         binding.pry
+         #binding.pry
          array << data[:team_name]
          
        end
@@ -162,10 +162,14 @@ end
     
     def player_name(team_name)
       array = []
-      game_hash.each do |location, data|
-        if data[:team_name] == team_name
-       
-     end
-     array
-   end
+        game_hash.each do |location, data|
+         if data[:team_name] == team_name #team_name
+         binding.pry
+          data[:player].each do |player, player_hash| #player
+            array << player_hash[:number]
+          end
+      end
+    end
+    array
+  end  
          
