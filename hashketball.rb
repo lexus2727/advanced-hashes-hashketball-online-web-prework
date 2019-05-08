@@ -188,6 +188,7 @@ end
         largest_shoe = 0
         game_hash.each do |location, data|
           data[:players].each do |player, player_hash|
+            binding.pry
             if data[:shoe] > largest_shoe
               return data[:rebounds]
             end
