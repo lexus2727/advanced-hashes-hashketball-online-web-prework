@@ -177,8 +177,8 @@ end
         game_hash.each do |location, data|
           data[:players].each do |player, player_hash|
             binding.pry
-            if data[:players] == player_name
-              return data[:players]
+            if player_hash == player_name
+              return player_hash
             end
           end
         end
