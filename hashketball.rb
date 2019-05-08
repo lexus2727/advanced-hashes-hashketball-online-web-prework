@@ -153,8 +153,9 @@ end
     def team_names
     array = []
        game_hash.each do |location, data|
+         binding.pry
          array << data[:team_name]
-         #binding.pry
+         
        end
           array
     end
@@ -162,4 +163,5 @@ end
     def player_numbers(team_name)
     array = []
      game_hash.each do |location, data|
-       data[:number].each do |team, team_hash|
+       
+         
