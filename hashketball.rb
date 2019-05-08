@@ -190,12 +190,12 @@ end
           data[:players].each do |player, player_hash|
           
             if data[:shoe] > largest_shoe
-              binding.pry
-              if data[:shoe] == largest_shoe
+                 data[:shoe] == largest_shoe
+                 binding.pry
               return data[:rebounds]
             end
           end
         end
       end
-    end
+    
          
