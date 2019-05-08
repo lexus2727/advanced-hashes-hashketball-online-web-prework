@@ -161,4 +161,11 @@ end
     end
     
     def player_name(team_name)
+      array = []
+      game_hash.each do |location, data|
+        if data[:number] == team_name
+       array << data[:number]
+     end
+     array
+   end
          
