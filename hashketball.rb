@@ -160,5 +160,5 @@ end
           array
     end
     
-    
+    def player_name(team_name)
          
