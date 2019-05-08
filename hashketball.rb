@@ -165,7 +165,7 @@ end
         game_hash.each do |location, data|
          if data[:team_name] == team_name 
          #binding.pry
-          data[:player].each do |player, player_hash| 
+          data[:players].each do |player, player_hash| 
             array << player_hash[:number]
           end
       end
