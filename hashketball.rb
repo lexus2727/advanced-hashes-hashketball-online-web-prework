@@ -160,5 +160,6 @@ end
     end
     
     def player_numbers(team_name)
-  
-  
+    array = []
+     game_hash.each do |location, data|
+       data[:number].each do |team, team_hash|
